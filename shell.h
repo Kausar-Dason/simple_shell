@@ -19,4 +19,10 @@ void display_prompt(void);
 char *read_input(char **command, size_t *size);
 void execute(const char *command);
 
+
+
+
+/* custom string functions */
+int _strlen(const char *s);
+
 #endif
