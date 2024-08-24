@@ -19,7 +19,9 @@ int main(void)
 			free(command);
 			break;
 		}
+
 		execute(command);
+
 		command = NULL;
 	}
 

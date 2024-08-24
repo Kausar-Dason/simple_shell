@@ -9,6 +9,9 @@
 void execute(const char *command)
 {
 	pid_t child_pid = fork();
+	int count = 0;
+	char *args[140];
+	char *token;
 
 	if (child_pid == -1)
 	{
@@ -18,9 +21,18 @@ void execute(const char *command)
 
 	else if (child_pid == 0) /* Child process*/
 	{
-		execlp(command, command, (char *)NULL);
-		perror("Error");
-		exit(EXIT_FAILURE);
+		token = strtok((char *)command, " ");
+		while (token != NULL)
+		{
+			args[count++] = token;
+			token = strtok(NULL, " ");
+		}
+		args[count] = NULL;
+		if (execve(args[0], args, environ) == -1)
+		{
+			perror("Error");
+			exit(EXIT_FAILURE);
+		}
 	}
 
 	else /* Parent process*/

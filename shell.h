@@ -12,6 +12,8 @@
 #include <fcntl.h>
 #include <errno.h>
 
+extern char **environ; /* Declare environ */
+
 void c_print(const char *text);
 void display_prompt(void);
 char *read_input(char **command, size_t *size);
