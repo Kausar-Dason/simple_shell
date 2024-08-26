@@ -18,11 +18,17 @@ void c_print(const char *text);
 void display_prompt(void);
 char *read_input(char **command, size_t *size);
 void execute(const char *command);
-
+char *_getenv(const char *name);
+char *find_executable(const char *command);
+char *construct_full_path(const char *dir, const char *command);
 
 
 
 /* custom string functions */
 int _strlen(const char *s);
+char *_strdup(char *str);
+int _strncmp(const char *s1, const char *s2, int n);
+char *_strcpy(char *d, const char *s);
+char *_strcat(char *dest, const char *src);
 
 #endif
