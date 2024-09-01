@@ -13,7 +13,7 @@ char *find_executable(const char *command)
 	char *cmd_path = _getenv("PATH");
 	char *path_cpy = _strdup(cmd_path);
 	char *dir = strtok(path_cpy, ":");
-	
+
 	if (cmd_path == NULL)
 		return (NULL);
 
@@ -26,7 +26,7 @@ char *find_executable(const char *command)
 			free(path_cpy);
 			return (full_path);
 		}
-		free (full_path);
+		free(full_path);
 		dir = strtok(NULL, ":");
 	}
 	free(path_cpy);
@@ -34,7 +34,7 @@ char *find_executable(const char *command)
 }
 
 /**
- * construct_full_path - a function constructs the full path to an executable 
+ * construct_full_path - a function constructs the full path to an executable
  *		command by concatenating a directory path and the command name.
  * @dir: a constant pointer to a string representing the directory path.
  * @command: a constant pointer to a string representing the command name.

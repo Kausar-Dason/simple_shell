@@ -31,4 +31,10 @@ int _strncmp(const char *s1, const char *s2, int n);
 char *_strcpy(char *d, const char *s);
 char *_strcat(char *dest, const char *src);
 
+
+
+/* helper functions */
+char *get_full_path(char *command);
+void parse_command(char *command, char **args);
+
 #endif
